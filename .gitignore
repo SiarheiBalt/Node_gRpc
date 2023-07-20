@@ -1,0 +1,9 @@
+node_modules/
+build/
+
+gen/
+
+.env
+
+.idea/
+*.iml
