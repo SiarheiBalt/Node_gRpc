@@ -3,7 +3,8 @@ import { expressConnectMiddleware } from "@bufbuild/connect-express";
 import bodyParser from "body-parser";
 
 import routes from "./connect";
-import client from "./client"
+import client from "./client";
+import createMany from "./src/create"
 
 
 async function main() {
@@ -17,6 +18,11 @@ app.use(expressConnectMiddleware({routes}))
 app.get("/", async (req, res) => {
     res.send("OK");
 });
+
+app.get("/create", async (req, res) => {
+    const message = await createMany();
+    res.send(message)
+})
 
 app.get("/grpc",  async (req, res) => {
 
