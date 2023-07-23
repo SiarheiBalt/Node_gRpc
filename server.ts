@@ -4,7 +4,9 @@ import bodyParser from "body-parser";
 
 import routes from "./connect";
 import client from "./client";
-import createMany from "./src/create"
+import createMany from "./src/create";
+import addInstrument from "./src/addInst";
+import addUser from "./src/addUser";
 
 
 async function main() {
@@ -23,6 +25,12 @@ app.get("/create", async (req, res) => {
     const message = await createMany();
     res.send(message)
 })
+
+app.get("/addinst", async (req, res) => {
+    const message = await addInstrument();
+    res.send(message)
+})
+
 
 app.get("/grpc",  async (req, res) => {
 

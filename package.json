@@ -1,9 +1,11 @@
 {
   "name": "connect-example",
   "version": "1.0.0",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
     "start": "npx tsx server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -26,7 +28,7 @@
     "tsx": "^3.12.7"
   },
   "devDependencies": {
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.4.4",
     "prisma": "^5.0.0",
     "ts-node": "^10.9.1",
     "typescript": "^5.1.6"
