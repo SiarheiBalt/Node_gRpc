@@ -3,8 +3,6 @@ build/
 
 gen/
 
-prisma/migrations/
-
 .env
 
 .idea/
