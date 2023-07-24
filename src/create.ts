@@ -9,12 +9,11 @@ export default async function () {
             {id: 2, name: "Gibson", type: "les poul"},
             {id: 3, name: "Musicman", type: "Bass"},
         ]
-        const res = await prisma.guitars.createMany({
-            data,
-            skipDuplicates: true
+        const res = await prisma.guitar.findUnique({
+            where: { id: 2 },
         })
         console.log(res)
-        if(res) return "bd created";
+        return "bd created";
     } catch (err) {
         return err;
         console.log(err)

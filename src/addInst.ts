@@ -4,9 +4,10 @@ const prisma = new PrismaClient();
 
 export default async function () {
     try {
-        const res = await prisma.guitars.create( 
-            {data: {
-                id: 4, name: "Ibanez", type: "superStrat"}
+        const res = await prisma.guitar.create({
+            data: {
+                id: 9, name: "Cort", type: "superStrat", userId: 2
+            }
         })
         console.log(res)
         if(res) return "element created";
