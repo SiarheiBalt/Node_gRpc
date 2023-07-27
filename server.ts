@@ -6,8 +6,9 @@ import routes from "./connect";
 import client from "./client";
 import createMany from "./src/create";
 import addInstrument from "./src/addInst";
-import addUser from "./src/addUser";
 import {update, findMany, findAndUpdate} from "./src/update"
+
+import authRoute from "./src/controllers/auth.route"
 
 async function main() {
     
@@ -17,9 +18,11 @@ const PORT = 8090;
 
 // app.use(expressConnectMiddleware({routes}))
 
+app.use("/auth", authRoute)
+
 app.get("/", async (req, res) => {
     res.send("OK");
-});
+})
 
 app.get("/update", async (req, res) => {
     const message = await update();

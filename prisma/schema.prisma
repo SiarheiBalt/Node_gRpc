@@ -11,11 +11,12 @@ datasource db {
 }
 
 model User {
-  id      Int      @id @default(autoincrement())
-  name    String   @db.VarChar(255)
-  email   String   @unique
-  guitars Guitar[]
-  profile Profile?
+  id       Int      @id @default(autoincrement())
+  name     String   @db.VarChar(255)
+  password String?  @db.VarChar(255)
+  email    String   @unique
+  guitars  Guitar[]
+  profile  Profile?
 }
 
 model Profile {
