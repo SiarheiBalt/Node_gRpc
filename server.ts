@@ -1,5 +1,6 @@
 import express, {Express, NextFunction, Request, Response} from "express";
-// import { expressConnectMiddleware } from "@bufbuild/connect-express";
+import { expressConnectMiddleware } from "@bufbuild/connect-express";
+import cors from "cors";
 import bodyParser from "body-parser";
 
 import routes from "./connect";
@@ -16,7 +17,9 @@ const app: Express = express();
 app.use(bodyParser.json());
 const PORT = 8090;
 
-// app.use(expressConnectMiddleware({routes}))
+app.use(cors());
+
+app.use(expressConnectMiddleware({routes}))
 
 app.use("/auth", authRoute)
 
@@ -53,14 +56,14 @@ app.get("/addinst", async (req, res) => {
 
 
 
-// app.get("/grpc",  async (req, res) => {
-//     await client().then((grpcResult) => {
+app.get("/grpc",  async (req, res) => {
+    await client().then((grpcResult) => {
 
-//         // some code
+        // some code
 
-//         res.send(grpcResult);
-//     })
-// })
+        res.send(grpcResult);
+    })
+})
 
 app.listen(PORT, () => console.log(`App has been started on port ${PORT}...`));
 

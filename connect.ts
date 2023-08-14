@@ -6,6 +6,8 @@ export default (router: ConnectRouter) =>
   router.service(ElizaService, {
     // implements rpc Say
     async say(req) {
+      console.log('implements rpc Say');
+      
       return {
         sentence: `You said: ${req.sentence}`
       }
